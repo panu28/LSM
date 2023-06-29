@@ -1,0 +1,75 @@
+<h1 >Register</h1>
+
+<h2 style="color: white;">Account Created</h2>
+
+<mat-grid-list cols="2" rowHeight="100px" gutterSize="10px" [formGroup] = "registerForm">
+  <mat-grid-tile>
+    <mat-form-field appearance = "fill">
+      <mat-label>FirstName</mat-label>
+      <input matInput formControlName="firstName" >
+      <mat-error *ngIf="this.FirstName.invalid">{{getFirstNameError()}}</mat-error>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-form-field appearance = "fill">
+      <mat-label>LastName</mat-label>
+      <input matInput formControlName="lastName">
+      <mat-error *ngIf="this.LastName.invalid">{{getLastNameError()}}</mat-error>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-form-field appearance = "fill">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" formControlName="email">
+      <mat-error *ngIf="this.Email.invalid">{{getEmailError()}}</mat-error>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-form-field appearance = "fill">
+      <mat-label>Phone number</mat-label>
+      <input matInput formControlName="mobile" required>
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error *ngIf="this.Mobile.invalid">
+        {{getPhoneError()}}
+      </mat-error>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-form-field appearance = "fill">
+      <mat-label>Enter your Password</mat-label>
+      <input matInput formControlName="password" placeholder="xxxxxxxx" [type]="hide? 'password' : 'text' " required>
+      <button mat-icon-button matSuffix (click)="hide =!hide">
+        <mat-icon>{{hide? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="this.Password.invalid">{{getPasswordError()}}</mat-error>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-form-field appearance = "fill">
+      <mat-label>Confirm your Password</mat-label>
+      <input matInput formControlName="repeatPassword" placeholder="xxxxxxxx" [type]="rhide? 'password' : 'text' " required>
+      <button mat-icon-button matSuffix (click)="rhide =!rhide">
+        <mat-icon>{{rhide? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="this.RepeatPassword.hasError('repeatPassword')">
+        Must be same as Password
+      </mat-error>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="2">
+    <button mat-raised-button color="accent" class="register-btn"
+    (click)="register()" [disabled]="registerForm.invalid">Register</button>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div class="login-link">
+  <span>Already have an account?</span>
+  <button mat-raised-button color="accent" routerLink="/login">Login</button>
+</div>
+

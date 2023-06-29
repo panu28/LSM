@@ -1,0 +1,45 @@
+@import '../../theme.scss';
+:host{
+  display: block;
+  padding: 2rem;
+  width: 700px;
+  border-radius: 1rem;
+  margin: 10rem auto 0;
+  background-color: rgba($color: #3f383837, $alpha: 1.0);
+
+}
+
+h1{
+  text-align: center;
+  font-size: 2rem;
+  color: $light-accent-A200;
+}
+h2{
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+mat-grid-list{
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+
+  .register-btn{
+    width: 50%;
+    height: 50%;
+    font-size: 1.4rem;
+  }
+}
+
+mat-form-field{
+  width: 78%;
+  transform: scale(1.2);
+
+}
+
+.login-link{
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
